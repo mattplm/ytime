@@ -7,8 +7,7 @@
   "description": "Shows real video time duration to the youtube player after applying playback speed",
 
   "icons": {
-    // TODO: Add icon here
-    "48": "icons/ytime-48.png"
+    "48": "images/logo.png"
   },
 
   "content_scripts": [
