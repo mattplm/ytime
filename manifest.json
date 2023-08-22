@@ -2,8 +2,9 @@
   "manifest_version": 2,
   "name": "YTime",
   "version": "0.1",
-
-  "description": "Adds real video length to the youtube player after applying playback speed",
+  "author": "Matthias Paulmier",
+  "homepage_url": "github.com/mattplm/ytime",
+  "description": "Shows real video time duration to the youtube player after applying playback speed",
 
   "icons": {
     // TODO: Add icon here
