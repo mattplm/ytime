@@ -1,4 +1,4 @@
-function timeWithPlaybackRate(duration, playbackRate){
+function timeWithPlaybackRate(duration, playbackRate) {
   return duration * (1 / playbackRate)
 }
 
@@ -7,8 +7,8 @@ Number.prototype.toDDHHMMSS = function () {
   let days    = Math.floor(hours / 24)
   let minutes = Math.floor((this - (hours * 3600)) / 60)
   let seconds = Math.floor(this - (hours * 3600) - (minutes * 60))
-
   let ddhhmmss = []
+
   if (days) {
     ddhhmmss.push(days + ':')
     hours -= days * 24
@@ -16,10 +16,10 @@ Number.prototype.toDDHHMMSS = function () {
   }
   if (days || hours) {
     ddhhmmss.push(hours)
-    if (minutes < 10) {minutes = "0"+minutes}
+    if (minutes < 10) {minutes = '0' + minutes}
   }
   ddhhmmss.push(minutes)
-  if (seconds < 10) {seconds = "0"+seconds}
+  if (seconds < 10) {seconds = '0' + seconds}
   ddhhmmss.push(seconds)
   return ddhhmmss.join(':')
 }
@@ -35,13 +35,12 @@ class YoutubeHandler {
 
   updateTimeDisplayer(_) {
     const displayer = this.getTimeDisplayerElement()
-    let text = displayer.textContent.split('(')[0]
-    displayer.textContent = text
     const video = this.getVideoElement()
-    const playbackRate = video.playbackRate
+    let text = displayer.textContent.split('(')[0]
+
+    displayer.textContent = text
     if (playbackRate !== 1) {
-      const duration = video.duration
-      const actualTime = timeWithPlaybackRate(duration, playbackRate)
+      const actualTime = timeWithPlaybackRate(video.duration, video.playbackRate)
       displayer.textContent = text + ' (x' + playbackRate + ' = ' + actualTime.toDDHHMMSS() + ')'
     }
     return this
