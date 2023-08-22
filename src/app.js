@@ -39,9 +39,9 @@ class YoutubeHandler {
     let text = displayer.textContent.split('(')[0]
 
     displayer.textContent = text
-    if (playbackRate !== 1) {
+    if (video.playbackRate !== 1) {
       const actualTime = timeWithPlaybackRate(video.duration, video.playbackRate)
-      displayer.textContent = text + ' (x' + playbackRate + ' = ' + actualTime.toDDHHMMSS() + ')'
+      displayer.textContent = text + ' (x' + video.playbackRate + ' = ' + actualTime.toDDHHMMSS() + ')'
     }
     return this
   }
