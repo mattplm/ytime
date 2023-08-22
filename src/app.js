@@ -18,10 +18,8 @@ Number.prototype.toDDHHMMSS = function () {
     ddhhmmss.push(hours)
     if (minutes < 10) {minutes = "0"+minutes}
   }
-  if (days || hours || minutes) {
-    ddhhmmss.push(minutes)
-    if (seconds < 10) {seconds = "0"+seconds}
-  }
+  ddhhmmss.push(minutes)
+  if (seconds < 10) {seconds = "0"+seconds}
   ddhhmmss.push(seconds)
   return ddhhmmss.join(':')
 }
