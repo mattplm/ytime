@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "YTime",
+  "version": "0.1",
+
+  "description": "Adds real video length to the youtube player after applying playback speed",
+
+  "icons": {
+    // TODO: Add icon here
+    "48": "icons/ytime-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["app.js"]
+    }
+  ]
+}
