@@ -10,9 +10,3 @@ applying the playback rate.
 This is how the time is displayed by default
 
 ![Example](./images/example.png)
-
-## TODO
-
-  * [ ] Allow customizing how the extension displays time
-  * [ ] Add more video players by default
-  * [ ] Allow adding customized video players
