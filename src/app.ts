@@ -54,6 +54,5 @@ class YoutubeHandler {
     video?.addEventListener('ratechange', ev => this.updateTimeDisplayer(ev))
   }
 }
-new YoutubeHandler()
-  .updateTimeDisplayer(null)
-  .setEventListener()
+
+new YoutubeHandler().setEventListener()
