@@ -46,7 +46,7 @@ class YoutubeHandler {
 
     displayer.textContent = text
     const actualTime = timeWithPlaybackRate(video?.duration || 0, video?.playbackRate || 1)
-    displayer.textContent = text + ' (x' + video?.playbackRate + ' = ' + actualTime.toDDHHMMSS() + ')'
+    displayer.textContent = text + ' (x' + video?.playbackRate + ': ' + actualTime.toDDHHMMSS() + ')'
     return this
   }
 
