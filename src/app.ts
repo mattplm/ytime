@@ -44,8 +44,10 @@ class YoutubeHandler {
     }
 
     displayer.textContent = text
-    const actualTime = timeWithPlaybackRate(video?.duration || 0, video?.playbackRate || 1)
-    displayer.textContent = text + ' (x' + video?.playbackRate + ': ' + actualTime.toDDHHMMSS() + ')'
+    if (video?.playbackRate || 1 !== 1) {
+      const actualTime = timeWithPlaybackRate(video?.duration || 0, video?.playbackRate || 1)
+      displayer.textContent = text + ' (x' + video?.playbackRate + ': ' + actualTime.toDDHHMMSS() + ')'
+    }
     return this
   }
 
@@ -55,4 +57,7 @@ class YoutubeHandler {
   }
 }
 
-new YoutubeHandler().setEventListener()
+// FIXME: When loading the page for the first time, the label will be set for a
+// split second then disappear. Try to find a way to run this after youtube
+// resets the value
+new YoutubeHandler().updateTimeDisplayer(null).setEventListener()
