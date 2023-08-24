@@ -1,6 +1,6 @@
 Number.prototype.toDDHHMMSS = function () {
-  let value = this.valueOf()
-  let hours      = Math.floor(value / 3600),
+  let value      = this.valueOf(),
+      hours      = Math.floor(value / 3600),
       days       = Math.floor(hours / 24),
       minutes    = Math.floor((value - (hours * 3600)) / 60),
       seconds    = Math.floor(value - (hours * 3600) - (minutes * 60)),
@@ -22,7 +22,6 @@ Number.prototype.toDDHHMMSS = function () {
   ddhhmmss.push(minutesStr)
   if (seconds < 10) {secondsStr = '0' + seconds}
   ddhhmmss.push(secondsStr)
-  console.debug(ddhhmmss)
   return ddhhmmss.join(':')
 }
 
