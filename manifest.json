@@ -2,8 +2,7 @@
   "manifest_version": 2,
   "name": "YTime",
   "version": "0.1",
-  "author": "Matthias Paulmier",
-  "homepage_url": "https://github.com/mattplm/ytime",
+
   "description": "Shows real video time duration to the youtube player after applying playback speed",
 
   "icons": {
@@ -13,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["src/app.js"]
+      "js": ["dist/app.js"]
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "name": "YTime",
+  "version": "0.0.1",
+  "description": "A small extension to display actual duration of a youtube video (taking playback rate into account)",
+  "source": "src/app.ts",
+  "main": "./dist/app.js",
+  "targets": {
+    "main": {
+      "includeNodeModules": true,
+      "optimize": true
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattplm/ytime.git"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "author": "Matthias Paulmier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattplm/ytime/issues"
+  },
+  "homepage": "https://github.com/mattplm/ytime#readme",
+  "dependencies": {
+    "@parcel/validator-typescript": "^2.9.3",
+    "parcel": "^2.9.3",
+    "typescript": "^5.1.6"
+  }
+}
