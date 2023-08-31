@@ -1,6 +1,5 @@
-Number.prototype.toDDHHMMSS = function () {
-  let value      = this.valueOf(),
-      hours      = Math.floor(value / 3600),
+const numberToDDHHMMSS = (value: number): string => {
+  let hours      = Math.floor(value / 3600),
       days       = Math.floor(hours / 24),
       minutes    = Math.floor((value - (hours * 3600)) / 60),
       seconds    = Math.floor(value - (hours * 3600) - (minutes * 60)),
@@ -25,7 +24,7 @@ Number.prototype.toDDHHMMSS = function () {
   return ddhhmmss.join(':')
 }
 
-class YoutubeHandler {
+class YTiExtension {
   public getVideoElement(): HTMLVideoElement | null {
     return document.querySelector('video')
   }
@@ -34,11 +33,10 @@ class YoutubeHandler {
     return document.getElementsByClassName('ytp-time-duration')[0].firstChild
   }
 
-  public updateTimeDisplayer(_: Event | null): YoutubeHandler {
+  public updateTimeDisplayer(_: Event | null): YTiExtension {
     const displayer = this.getTimeDisplayerElement()
     const video = this.getVideoElement()
     let text = displayer.textContent.split('(')[0]
-
     const timeWithPlaybackRate = (duration: number, playbackRate: number): number => {
       return duration * (1 / playbackRate)
     }
@@ -46,7 +44,7 @@ class YoutubeHandler {
     displayer.textContent = text
     if (video?.playbackRate || 1 !== 1) {
       const actualTime = timeWithPlaybackRate(video?.duration || 0, video?.playbackRate || 1)
-      displayer.textContent = text + ' (x' + video?.playbackRate + ': ' + actualTime.toDDHHMMSS() + ')'
+      displayer.textContent = text + ' (x' + video?.playbackRate + ': ' + numberToDDHHMMSS(actualTime) + ')'
     }
     return this
   }
@@ -60,4 +58,4 @@ class YoutubeHandler {
 // FIXME: When loading the page for the first time, the label will be set for a
 // split second then disappear. Try to find a way to run this after youtube
 // resets the value
-new YoutubeHandler().updateTimeDisplayer(null).setEventListener()
+new YTiExtension().updateTimeDisplayer(null).setEventListener()
