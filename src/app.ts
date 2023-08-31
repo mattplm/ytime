@@ -1,4 +1,4 @@
-import { numberToDDHHMMSS } from './utils'
+import { numberToDDHHMMSS, timeWithPlaybackRate } from './utils'
 
 class YTiExtension {
   public getVideoElement(): HTMLVideoElement | null {
@@ -13,12 +13,10 @@ class YTiExtension {
     const displayer = this.getTimeDisplayerElement()
     const video = this.getVideoElement()
     let text = displayer.textContent.split('(')[0]
-    const timeWithPlaybackRate = (duration: number, playbackRate: number): number => {
-      return duration * (1 / playbackRate)
-    }
 
     displayer.textContent = text
     console.debug(video?.playbackRate)
+    console.debug('test')
     if (video?.playbackRate || 1 !== 1) {
       const actualTime = timeWithPlaybackRate(video?.duration || 0, video?.playbackRate || 1)
       displayer.textContent = text + ' (x' + video?.playbackRate + ': ' + numberToDDHHMMSS(actualTime) + ')'

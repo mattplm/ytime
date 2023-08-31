@@ -23,3 +23,5 @@ export function numberToDDHHMMSS(value: number): string {
   ddhhmmss.push(secondsStr)
   return ddhhmmss.join(':')
 }
+
+export const timeWithPlaybackRate = (duration: number, playbackRate: number): number =>  duration * (1 / playbackRate)
